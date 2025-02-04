@@ -1,0 +1,44 @@
+//A number is self-dividing if it is divisible by each of its digits. For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 % 8 == 0. Given an array of integers, find all self-dividing numbers and store them in a new array.
+
+#include<iostream>
+using namespace std;
+
+int self_divisible(int n){
+    int temp ,  num = n;
+    int flag = 0;
+    while(num > 0){
+        temp = num % 10;
+        if(n % temp == 0){
+            num = num /10;
+        }
+        else{
+            break;
+        }
+    }
+       if(num == 0){
+           flag = 1;
+       }
+       return flag;
+}
+int main(){
+    
+    int arr[] = {1 ,2 ,3 ,128 , 9 ,45, 65};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int arr_1[n];
+    int i = 0;
+    for(auto it: arr){
+        if(self_divisible(it)){
+            arr_1[i++] = it;
+        }
+    }
+    
+    
+    for(auto it: arr){
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+    
+    for(auto it: arr_1){
+        cout<<it<<" ";
+    }
+}

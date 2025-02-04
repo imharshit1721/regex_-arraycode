@@ -1,0 +1,47 @@
+//Given an array of integers, check if each number is a palindrome. Store 1 for palindrome numbers and 0 otherwise in a new array.
+
+
+
+#include<iostream>
+using namespace std;
+bool is_palindrome(int n){
+    int temp , num = n , sum = 0;
+    bool flag = false;
+    while(num > 0){
+        temp = num % 10;
+        sum = sum * 10 + temp;
+        num = num/10;
+    }
+    
+    if(n == sum){
+        flag = true;
+    }
+    return flag;
+}
+
+int main(){
+    int n = 6;
+    int arr[n] = {232 , 411 , 11 , 90, 56 , 010};
+    int arr_1[n];
+    
+    int i = 0;
+    for(auto it: arr){
+        if(is_palindrome(it)){
+            arr_1[i++] = 1;
+        }
+        else{
+            arr_1[i++] = 0;
+        }
+    }
+    
+    
+    for(auto it: arr){
+        cout<<it<<"  ";
+    }
+    
+    cout<<endl;
+    
+    for(auto it: arr_1){
+        cout<<it<<"  ";
+    }
+}

@@ -1,0 +1,36 @@
+// Online C++ compiler to run C++ program online
+//For each element in the given array, generate an array of its factors. Store these arrays as elements of a larger array.
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+    
+    int arr[] = {1 ,2 ,4 ,5,6,7,11,12};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int arr_1[n][n];
+   int j = 0;
+    for(auto it: arr){
+        int  k = 0;
+        for(int i = 1; i <= it; i++){
+            
+            if(it % i == 0){
+                arr_1[j][k] = i;
+                k = k + 1;
+            }
+            
+        } 
+        j = j + 1;
+    }
+    
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            cout<<arr_1[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    
+    
+}

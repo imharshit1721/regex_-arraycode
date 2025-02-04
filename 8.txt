@@ -1,0 +1,35 @@
+//Take an array of integers and reverse the digits of each number. Store the reversed numbers in a new array.
+#include<iostream>
+using namespace std;
+
+int reverse(int n){
+    int temp , num  = n , sum = 0;
+    while(num > 0){
+        temp = num % 10;
+        sum = sum * 10 + temp;
+        num = num/10;
+    }
+    return sum;
+}
+
+int main(){
+    
+    int arr[] = {12  ,345  ,76 , 35 , 76 , 103};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    
+    int arr_1[n];
+    int i = 0;
+    for(auto it: arr){
+        arr_1[i++] = reverse(it);
+    }
+    
+    
+    for(auto it: arr_1){
+        cout<<it<<" ";
+    }
+    
+    
+    
+    
+    
+}
